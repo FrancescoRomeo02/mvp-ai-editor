@@ -1,0 +1,29 @@
+# Copy to .dev.vars. This is the only local environment file used by Next.js and Wrangler.
+# Never commit .dev.vars or replace these placeholders with real secrets in this file.
+
+# Required for authentication, project metadata, and server-side storage.
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+SUPABASE_SERVICE_ROLE_KEY=
+
+# Optional storage policy overrides; application defaults are used when omitted.
+SUPABASE_PROJECT_FILE_SIZE_LIMIT=50MB
+SUPABASE_ALLOWED_MIME_TYPES=text/*,application/json,application/pdf,application/zip,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/*
+
+# AI runtime. Keep AI disabled until the provider and credentials are ready.
+AI_PROVIDER=groq
+AI_ENABLED=false
+AI_USER_KEYS_ENCRYPTION_KEY=base64-encoded-32-byte-key
+CF_AI_MODEL=@cf/meta/llama-3.2-3b-instruct
+GROQ_API_KEYS=
+GROQ_MODEL=llama-3.3-70b-versatile
+OPENAI_MODEL=gpt-4o-mini
+AI_CREDITS_PER_DAY=20
+AI_REQUESTS_PER_MINUTE=5
+
+# Observability. Logfire is optional; never expose its token to the browser.
+AI_OBSERVABILITY_LOGS=true
+# Comma-separated Supabase user IDs allowed to open /dev/ai.
+AI_OBSERVABILITY_ADMIN_USER_IDS=
+LOGFIRE_TOKEN=
+LOGFIRE_ENVIRONMENT=development

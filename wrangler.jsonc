@@ -1,0 +1,28 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "paper-editor-mvp",
+  "main": "worker.ts",
+  "compatibility_date": "2026-08-19",
+  "compatibility_flags": ["nodejs_compat"],
+  "vars": {
+    "AI_ENABLED": "false",
+    "AI_PROVIDER": "cloudflare",
+    "CF_AI_MODEL": "@cf/meta/llama-3.2-3b-instruct",
+    "LOGFIRE_ENVIRONMENT": "production",
+    "AI_CREDITS_PER_DAY": "20",
+    "AI_REQUESTS_PER_MINUTE": "5"
+  },
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "ai": { "binding": "AI" },
+  "durable_objects": {
+    "bindings": [{ "name": "USAGE", "class_name": "UsageDurableObject" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["UsageDurableObject"] }],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  }
+}
